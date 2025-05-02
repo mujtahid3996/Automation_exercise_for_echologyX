@@ -10,7 +10,7 @@ export class GardenPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.gardenFurnitureHeader = page.locator('h1:has-text("Garden Furniture")');
+        this.gardenFurnitureHeader = page.locator('h1:has-text("Garden Furniture")').nth(1);
         this.sortBy = page.locator('text=Sort by');
     }
     async validate_garden_furniture_header(){

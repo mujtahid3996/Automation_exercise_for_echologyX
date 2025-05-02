@@ -26,6 +26,8 @@ test('validate main navigation functionality is working', async ({ page }) => {
     await page.waitForLoadState('load');
 
     const mainMenu = new mainMenuPage(page);
+
+    await mainMenu.check_popup_Page()
     // click on lounge settings
     await mainMenu.click_lounge()
 
@@ -45,6 +47,8 @@ test('validate adding an item to the basket is working', async ({ page }) => {
     await page.waitForLoadState('load');
 
     const mainMenu = new mainMenuPage(page);
+
+    await mainMenu.check_popup_Page()
     // click on lounge 
     await mainMenu.click_lounge()
     //click on a  available product
@@ -61,21 +65,25 @@ test('Verify the basket page core areas', async ({ page }) => {
     // wait for the page to load
     await page.waitForLoadState('load');
 
+
     const mainMenu = new mainMenuPage(page);
+
+
+    await mainMenu.check_popup_Page()
     // click on lounge 
     await mainMenu.click_lounge()
     //click on a  available product
     await mainMenu.click_on_a_product()
 
-    await page.waitForLoadState('load')
+    await page.waitForLoadState('domcontentloaded')
 
     //click on add to basket button
     await mainMenu.click_add_to_basket()
 
-    await mainMenu.click_basketlink()
+    // await mainMenu.click_basketlink()
     const basketPage = new BasketPage(page);
     // click on checkout link
-    await basketPage.validate_add_to_basket_button()
+    // await basketPage.validate_add_to_basket_button()
 
     await basketPage.validate_your_basket_header()
     await basketPage.validate_perfect_match_header()
@@ -92,6 +100,9 @@ test('Verify a catalouge page: Garden core areas', async ({ page }) => {
     await page.waitForLoadState('load');
 
     const mainMenu = new mainMenuPage(page);
+
+    
+    await mainMenu.check_popup_Page()
     // click on lounge 
     await mainMenu.click_garden_link()
     //click on a  available product

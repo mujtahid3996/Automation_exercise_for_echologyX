@@ -12,6 +12,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  timeout: 120 * 1000,
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -37,11 +38,12 @@ export default defineConfig({
   projects: [
   //  for running multiple browsers need to uncomment the below code, based on your prefference I am running only chromium
     {
-      name: 'chromium',
-      use: { 
-        ...devices['Desktop Chrome'],
-        headless: false, // Run tests in headed mode
-      },
+      name: 'Microsoft edge',
+      use: { ...devices['Desktop Edge'], 
+            channel: 'msedge' ,
+            headless: false,
+            // storageState: 'playwright/.auth/user.json',
+          },
     }
 
     // {

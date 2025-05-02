@@ -17,10 +17,10 @@ export class BasketPage {
         this.yourBasketHeader = page.getByRole('heading', { name: 'Your Basket' });
         this.checkoutLink = page.getByRole('link', { name: 'Checkout' });
         this.addToBasketButton = page.getByRole('button', { name: 'Add to Basket' });
-        this.perfectMatchHeader = page.getByRole('heading', { name: 'Perfect Match' });
-        this.removeitemButton = page.getByRole('button', { name: 'Remove item' });
-        this.subtotal = page.getByRole('heading', { name: 'Subtotal' });
-        this.delivery = page.getByRole('heading', { name: 'Delivery' });
+        this.perfectMatchHeader = page.locator('//h2[text()="Perfect match..."]').first();
+        this.removeitemButton = page.locator('//a[@title="Remove this item"]').first();
+        this.subtotal = page.locator('//span[text()="Subtotal"]').first();
+        this.delivery = page.locator('//span[text()="Delivery"]').first();
         this.checkOutSecurelyLink = page.getByRole('link', { name: 'Check out securely' });
        
 

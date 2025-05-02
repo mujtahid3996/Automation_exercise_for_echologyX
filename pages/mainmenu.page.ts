@@ -12,6 +12,7 @@ export class mainMenuPage {
     readonly diningLink: Locator;
     readonly storageLink: Locator;
     readonly BasketLink: Locator;
+    readonly closeButton: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -23,9 +24,16 @@ export class mainMenuPage {
         this.diningLink = page.getByRole('link', { name: 'Dining' }).first();
         this.storageLink = page.getByRole('link', { name: 'Storage' }).first();
         this.BasketLink = page.locator('//li[@id="cart_block_mobile"]').first();
+        this.closeButton = page.locator('//button[@aria-label="Close dialog"]').first();
 
 
 
+    }
+
+    async check_popup_Page(){
+        if(await this.closeButton.isVisible()){
+            await this.closeButton.click();
+        }
     }
 
     async click_lounge() {
@@ -70,7 +78,7 @@ export class mainMenuPage {
     }
     
     async click_add_to_basket() {
-        const addToBasketButton = this.page.locator('//button[text()="Add to Basket"]').first();  
+        const addToBasketButton = this.page.locator('//input[@value="Add to Basket"]').first();  
         await addToBasketButton.scrollIntoViewIfNeeded();
         await addToBasketButton.click();
     }
