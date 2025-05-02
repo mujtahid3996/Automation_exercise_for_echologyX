@@ -44,12 +44,12 @@ export default defineConfig({
             headless: false,
             // storageState: 'playwright/.auth/user.json',
           },
-    }
+    },
 
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
 
     // {
     //   name: 'webkit',
