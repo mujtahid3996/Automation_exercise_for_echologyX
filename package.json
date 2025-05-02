@@ -1,0 +1,22 @@
+{
+  "name": "automation_exercise_for_echologyx",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mujtahid3996/Automation_exercise_for_echologyX.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mujtahid3996/Automation_exercise_for_echologyX/issues"
+  },
+  "homepage": "https://github.com/mujtahid3996/Automation_exercise_for_echologyX#readme",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.3"
+  }
+}
