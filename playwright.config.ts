@@ -24,7 +24,7 @@ export default defineConfig({
   // this should be half of the number of cores in your machine@mujtahid
   workers: process.env.CI ? 4 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['html'],['allure-playwright', { outputFolder: 'allure-results' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */

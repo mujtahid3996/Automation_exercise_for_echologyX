@@ -1,2 +1,5 @@
-- for running tests using multiple browsers need to uncomment project section of playwright
+- for running tests using multiple browsers need to uncomment project section of playwright.config.ts
+- to run the project run npm install 
+- for allure report java needs to be installed on your system 
 - 
+
