@@ -109,3 +109,71 @@ test('Verify a catalouge page: Garden core areas', async ({ page }) => {
     const gardenPage = new GardenPage(page);
     await gardenPage.validate_garden_furniture_header()
 });
+test('Verify a catalouge page: validate sorting is working', async ({ page }) => {
+    // naviagate to the daals website
+    await page.goto('https://www.daals.co.uk/');
+    // wait for the page to load
+    await page.waitForLoadState('load');
+
+    const mainMenu = new mainMenuPage(page);
+
+    
+    await mainMenu.check_popup_Page()
+    // click on lounge 
+    await mainMenu.click_garden_link()
+    //click on a  available product
+    const gardenPage = new GardenPage(page);
+    await gardenPage.click_on_sort_by()
+});
+test('Verify a catalouge page: validate sorting is working for newest items', async ({ page }) => {
+    // naviagate to the daals website
+    await page.goto('https://www.daals.co.uk/');
+    // wait for the page to load
+    await page.waitForLoadState('load');
+
+    const mainMenu = new mainMenuPage(page);
+
+    
+    await mainMenu.check_popup_Page()
+    // click on lounge 
+    await mainMenu.click_garden_link()
+    //click on a  available product
+    const gardenPage = new GardenPage(page);
+    await gardenPage.click_on_sort_by()
+
+    // await gardenPage.click_on_sort_by_newest()
+})
+test('Verify a catalouge page: validate sorting is working for price low to high', async ({ page }) => {
+    // naviagate to the daals website
+    await page.goto('https://www.daals.co.uk/');
+    // wait for the page to load
+    await page.waitForLoadState('load');
+
+    const mainMenu = new mainMenuPage(page);
+
+    
+    await mainMenu.check_popup_Page()
+    // click on lounge 
+    await mainMenu.click_garden_link()
+    //click on a  available product
+    const gardenPage = new GardenPage(page);
+    await gardenPage.click_on_sort_by()
+    // await gardenPage.click_on_sort_by_price_low_to_high()
+})
+test('Verify a catalouge page: validate sorting is working for price high to low', async ({ page }) => {
+    // naviagate to the daals website
+    await page.goto('https://www.daals.co.uk/');
+    // wait for the page to load
+    await page.waitForLoadState('load');
+
+    const mainMenu = new mainMenuPage(page);
+
+    
+    await mainMenu.check_popup_Page()
+    // click on lounge 
+    await mainMenu.click_garden_link()
+    //click on a  available product
+    const gardenPage = new GardenPage(page);
+    await gardenPage.click_on_sort_by()
+    // await gardenPage.click_on_sort_by_price_high_to_low()
+})
