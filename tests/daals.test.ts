@@ -31,7 +31,7 @@ test('validate main navigation functionality is working', async ({ page }) => {
     // click on lounge settings
     await mainMenu.click_lounge()
 
-    await mainMenu.click_dining_link
+    await mainMenu.click_dining_link()
 
     await mainMenu.click_bedroom_link()
 
