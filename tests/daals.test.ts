@@ -3,27 +3,32 @@ import { mainMenuPage } from '../pages/mainmenu.page';
 import { BasketPage } from '../pages/basket.page';
 import { GardenPage } from '../pages/garden.page';
 
-test('validate search functionality is working', async ({ page }) => {
-  await page.goto('https://www.daals.co.uk/');
+test('validate search functionality is working',{
+  annotation: {
+    type: 'issue',
+    description: 'https://github.com/microsoft/playwright/issues/23180',
+  },
+}, async ({ page }) => {
+  await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
 
-  await page.waitForLoadState('load');
+  //
   // Expect a title "to contain" a substring.
   await page.locator('//input[@type="text"]').nth(0).fill('sofa');
 });
 
 test('validate logo functionality is working', async ({ page }) => {
-    await page.goto('https://www.daals.co.uk/');
+    await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
   
-    await page.waitForLoadState('load');
+   
     // Expect a title "to contain" a substring.
     await page.locator('//div[@class="main-logo"]').nth(0).click();
     //validating if logo clicking functionality is working
     await expect(page.locator('//h2[text()="Accessories"]')).toBeVisible({ timeout: 5000 });
 });
 test('validate main navigation functionality is working', async ({ page }) => {
-    await page.goto('https://www.daals.co.uk/');
+    await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
   
-    await page.waitForLoadState('load');
+   
 
     const mainMenu = new mainMenuPage(page);
 
@@ -42,9 +47,9 @@ test('validate main navigation functionality is working', async ({ page }) => {
 });
 test('validate adding an item to the basket is working', async ({ page }) => {
     // naviagate to the daals website
-    await page.goto('https://www.daals.co.uk/');
+    await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
-    await page.waitForLoadState('load');
+   
 
     const mainMenu = new mainMenuPage(page);
 
@@ -61,9 +66,9 @@ test('validate adding an item to the basket is working', async ({ page }) => {
 });
 test('Verify the basket page core areas', async ({ page }) => {
     // naviagate to the daals website
-    await page.goto('https://www.daals.co.uk/');
+    await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
-    await page.waitForLoadState('load');
+   
 
 
     const mainMenu = new mainMenuPage(page);
@@ -95,9 +100,9 @@ test('Verify the basket page core areas', async ({ page }) => {
 });
 test('Verify a catalouge page: Garden core areas', async ({ page }) => {
     // naviagate to the daals website
-    await page.goto('https://www.daals.co.uk/');
+    await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
-    await page.waitForLoadState('load');
+   
 
     const mainMenu = new mainMenuPage(page);
 
@@ -111,9 +116,9 @@ test('Verify a catalouge page: Garden core areas', async ({ page }) => {
 });
 test('Verify a catalouge page: validate sorting is working', async ({ page }) => {
     // naviagate to the daals website
-    await page.goto('https://www.daals.co.uk/');
+    await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
-    await page.waitForLoadState('load');
+   
 
     const mainMenu = new mainMenuPage(page);
 
@@ -127,9 +132,9 @@ test('Verify a catalouge page: validate sorting is working', async ({ page }) =>
 });
 test('Verify a catalouge page: validate sorting is working for newest items', async ({ page }) => {
     // naviagate to the daals website
-    await page.goto('https://www.daals.co.uk/');
+    await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
-    await page.waitForLoadState('load');
+   
 
     const mainMenu = new mainMenuPage(page);
 
@@ -145,9 +150,9 @@ test('Verify a catalouge page: validate sorting is working for newest items', as
 })
 test('Verify a catalouge page: validate sorting is working for price low to high', async ({ page }) => {
     // naviagate to the daals website
-    await page.goto('https://www.daals.co.uk/');
+    await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
-    await page.waitForLoadState('load');
+   
 
     const mainMenu = new mainMenuPage(page);
 
@@ -162,9 +167,9 @@ test('Verify a catalouge page: validate sorting is working for price low to high
 })
 test('Verify a catalouge page: validate sorting is working for price high to low', async ({ page }) => {
     // naviagate to the daals website
-    await page.goto('https://www.daals.co.uk/');
+    await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
-    await page.waitForLoadState('load');
+   
 
     const mainMenu = new mainMenuPage(page);
 
