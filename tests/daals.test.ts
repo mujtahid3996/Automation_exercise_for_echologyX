@@ -11,7 +11,6 @@ test('validate search functionality is working',{
 }, async ({ page }) => {
   await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
 
-  //
   // Expect a title "to contain" a substring.
   await page.locator('//input[@type="text"]').nth(0).fill('sofa');
 });
@@ -19,7 +18,6 @@ test('validate search functionality is working',{
 test('validate logo functionality is working', async ({ page }) => {
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
   
-   
     // Expect a title "to contain" a substring.
     await page.locator('//div[@class="main-logo"]').nth(0).click();
     //validating if logo clicking functionality is working
@@ -28,10 +26,8 @@ test('validate logo functionality is working', async ({ page }) => {
 test('validate main navigation functionality is working', async ({ page }) => {
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
   
-   
-
     const mainMenu = new mainMenuPage(page);
-
+    
     await mainMenu.check_popup_Page()
     // click on lounge settings
     await mainMenu.click_lounge()
@@ -49,7 +45,6 @@ test('validate adding an item to the basket is working', async ({ page }) => {
     // naviagate to the daals website
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
-   
 
     const mainMenu = new mainMenuPage(page);
 
@@ -68,11 +63,7 @@ test('Verify the basket page core areas', async ({ page }) => {
     // naviagate to the daals website
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
-   
-
-
     const mainMenu = new mainMenuPage(page);
-
 
     await mainMenu.check_popup_Page()
     // click on lounge 
@@ -81,7 +72,6 @@ test('Verify the basket page core areas', async ({ page }) => {
     await mainMenu.click_on_a_product()
 
     await page.waitForLoadState('domcontentloaded')
-
     //click on add to basket button
     await mainMenu.click_add_to_basket()
 
@@ -103,10 +93,8 @@ test('Verify a catalouge page: Garden core areas', async ({ page }) => {
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
    
-
     const mainMenu = new mainMenuPage(page);
 
-    
     await mainMenu.check_popup_Page()
     // click on lounge 
     await mainMenu.click_garden_link()
@@ -173,7 +161,6 @@ test('Verify a catalouge page: validate sorting is working for price high to low
 
     const mainMenu = new mainMenuPage(page);
 
-    
     await mainMenu.check_popup_Page()
     // click on lounge 
     await mainMenu.click_garden_link()
