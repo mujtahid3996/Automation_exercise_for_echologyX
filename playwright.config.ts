@@ -22,7 +22,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   // this should be half of the number of cores in your machine@mujtahid
-  workers: process.env.CI ? 4 : undefined,
+  workers: process.env.CI ? 4 : 4,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['html'],['allure-playwright', { outputFolder: 'allure-results' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
