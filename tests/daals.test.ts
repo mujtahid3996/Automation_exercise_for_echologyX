@@ -101,6 +101,7 @@ test('Verify a catalouge page: Garden core areas', async ({ page }) => {
     //click on a  available product
     const gardenPage = new GardenPage(page);
     await gardenPage.validate_garden_furniture_header()
+<<<<<<< HEAD
 });
 test('Verify a catalouge page: validate sorting is working', async ({ page }) => {
     // naviagate to the daals website
@@ -169,3 +170,6 @@ test('Verify a catalouge page: validate sorting is working for price high to low
     await gardenPage.click_on_sort_by()
     // await gardenPage.click_on_sort_by_price_high_to_low()
 })
+=======
+});
+>>>>>>> parent of c03e53e (added some new scenarios)
