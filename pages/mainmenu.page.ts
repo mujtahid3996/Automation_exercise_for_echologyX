@@ -25,13 +25,14 @@ export class mainMenuPage {
         this.storageLink = page.getByRole('link', { name: 'Storage' }).first();
         this.BasketLink = page.locator('//li[@id="cart_block_mobile"]').first();
         this.closeButton = page.locator('//button[@aria-label="Close dialog"]').first();
-
+        this.bathroomLink = page.getByRole('link', { name: 'Bathroom' }).first();
 
 
     }
 
     async check_popup_Page(){
-        if(await this.closeButton.isVisible()){
+        const popup_visible = await this.closeButton.isVisible()
+        if(popup_visible){
             await this.closeButton.click();
         }
     }

@@ -46,6 +46,7 @@ export default defineConfig({
           },
     },
 
+<<<<<<< Updated upstream
     {
       name: 'firefox',
       use: { 
@@ -55,6 +56,12 @@ export default defineConfig({
       },
       
     }
+=======
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
+>>>>>>> Stashed changes
 
     // {
     //   name: 'webkit',

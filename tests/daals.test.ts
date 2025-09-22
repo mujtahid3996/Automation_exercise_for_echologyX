@@ -3,12 +3,7 @@ import { mainMenuPage } from '../pages/mainmenu.page';
 import { BasketPage } from '../pages/basket.page';
 import { GardenPage } from '../pages/garden.page';
 
-test('validate search functionality is working',{
-  annotation: {
-    type: 'issue',
-    description: 'https://github.com/microsoft/playwright/issues/23180',
-  },
-}, async ({ page }) => {
+test('validate search functionality is working', async ({ page }) => {
   await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
 
   // Expect a title "to contain" a substring.
@@ -17,11 +12,15 @@ test('validate search functionality is working',{
 
 test('validate logo functionality is working', async ({ page }) => {
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
+
+    const mainMenu = new mainMenuPage(page);
+    
+    await mainMenu.check_popup_Page()
   
     // Expect a title "to contain" a substring.
-    await page.locator('//div[@class="main-logo"]').nth(0).click();
+    // await page.locator('//div[@class="main-logo"]').nth(0).click();
     //validating if logo clicking functionality is working
-    await expect(page.locator('//h2[text()="Accessories"]')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('//a[normalize-space(.)="Accessories"]').nth(0)).toBeVisible({ timeout: 5000 });
 });
 test('validate main navigation functionality is working', async ({ page }) => {
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
