@@ -41,15 +41,15 @@ export default defineConfig({
       name: 'Microsoft edge',
       use: { ...devices['Desktop Edge'], 
             channel: 'msedge' ,
-            headless: false,
+            headless: false
             // storageState: 'playwright/.auth/user.json',
           },
     },
 
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    }
 
     // {
     //   name: 'webkit',

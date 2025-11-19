@@ -14,11 +14,10 @@ test('validate logo functionality is working', async ({ page }) => {
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
 
     const mainMenu = new mainMenuPage(page);
-    
     await mainMenu.check_popup_Page()
   
-    // Expect a title "to contain" a substring.
-    // await page.locator('//div[@class="main-logo"]').nth(0).click();
+    //Expect a title "to contain" a substring.
+    //await page.locator('//div[@class="main-logo"]').nth(0).click();
     //validating if logo clicking functionality is working
     await expect(page.locator('//a[normalize-space(.)="Accessories"]').nth(0)).toBeVisible({ timeout: 5000 });
 });
@@ -49,6 +48,7 @@ test('validate adding an item to the basket is working', async ({ page }) => {
 
     await mainMenu.check_popup_Page()
     // click on lounge 
+    await mainMenu.hover_storage_link()
     await mainMenu.click_lounge()
     //click on a  available product
     await mainMenu.click_on_a_product()
@@ -65,6 +65,7 @@ test('Verify the basket page core areas', async ({ page }) => {
     const mainMenu = new mainMenuPage(page);
 
     await mainMenu.check_popup_Page()
+     await mainMenu.hover_storage_link()
     // click on lounge 
     await mainMenu.click_lounge()
     //click on a  available product
@@ -101,6 +102,70 @@ test('Verify a catalouge page: Garden core areas', async ({ page }) => {
     const gardenPage = new GardenPage(page);
     await gardenPage.validate_garden_furniture_header()
 });
+test('Validate garden living section is working', async ({ page }) => {
+    // naviagate to the daals website
+    await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
+    // wait for the page to load
+   
+    const mainMenu = new mainMenuPage(page);
+
+    await mainMenu.check_popup_Page()
+    // click on lounge 
+    await mainMenu.hover_garden()
+    await mainMenu.click_garden_living()
+    //click on a  available product
+    const gardenPage = new GardenPage(page);
+    await gardenPage.validate_garden_Living_header()
+    await page.close();
+});
+test('Validate garden dining section is working', async ({ page }) => {
+    // naviagate to the daals website
+    await page.reload()
+    await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
+    // wait for the page to load
+   
+    const mainMenu = new mainMenuPage(page);
+
+   await mainMenu.check_popup_Page()
+    // click on lounge 
+    await mainMenu.hover_garden()
+    await mainMenu.click_garden_dining()
+    //click on a  available product
+    const gardenPage = new GardenPage(page);
+    await gardenPage.validate_garden_dining()
+});
+test('Validate garden sets by material section is working', async ({ page }) => {
+    // naviagate to the daals website
+    await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
+    // wait for the page to load
+   
+    const mainMenu = new mainMenuPage(page);
+
+   await mainMenu.check_popup_Page()
+    // click on lounge 
+    await mainMenu.hover_garden()
+    await mainMenu.click_garden_sets_by_material()
+    //click on a  available product
+    const gardenPage = new GardenPage(page);
+    await gardenPage.validate_garden_sets_by_material()
+});
+test('Validate garden accessories section is working', async ({ page }) => {
+    // naviagate to the daals website
+    await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
+    // wait for the page to load
+   
+    const mainMenu = new mainMenuPage(page);
+
+    await mainMenu.check_popup_Page()
+    // click on lounge 
+   await mainMenu.check_popup_Page()
+    // click on lounge 
+    await mainMenu.hover_garden()
+    await mainMenu.click_garden_accessories()
+    const gardenPage = new GardenPage(page);
+    await gardenPage.validate_garden_accessories()
+});
+
 test('Verify a catalouge page: validate sorting is working', async ({ page }) => {
     // naviagate to the daals website
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});

@@ -13,6 +13,10 @@ export class mainMenuPage {
     readonly storageLink: Locator;
     readonly BasketLink: Locator;
     readonly closeButton: Locator;
+    readonly gardenliving: Locator;
+    readonly gardendining: Locator;
+    readonly gardensetsbymaterial: Locator;
+    readonly gardenaccessories: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -26,12 +30,15 @@ export class mainMenuPage {
         this.BasketLink = page.locator('//li[@id="cart_block_mobile"]').first();
         this.closeButton = page.locator('//button[@aria-label="Close dialog"]').first();
         this.bathroomLink = page.getByRole('link', { name: 'Bathroom' }).first();
-
+        this.gardenliving = page.getByRole('link', { name: 'Garden Living' }).first();
+        this.gardendining = page.getByRole('link', { name: 'Garden Dining' }).first();
+        this.gardensetsbymaterial = page.getByRole('link', { name: 'Garden Sets by Material' }).first();
+        this.gardenaccessories = page.getByRole('link', { name: 'Garden Accessories' }).first();
 
     }
 
     async check_popup_Page(){
-        const popup_visible = await this.closeButton.isVisible()
+        const popup_visible = await this.closeButton.isVisible({timeout:200})
         if(popup_visible){
             await this.closeButton.click();
         }
@@ -62,6 +69,28 @@ export class mainMenuPage {
         await this.gardenLink.click();
     }
 
+     async hover_garden() {
+        await expect(this.gardenLink).toBeVisible({ timeout: 5000 });
+        await this.gardenLink.hover();
+    }
+
+     async click_garden_living() {
+        await expect(this.gardenliving).toBeVisible({ timeout: 5000 });
+        await this.gardenliving.click();
+    }
+     async click_garden_dining() {
+        await expect(this.gardendining).toBeVisible({ timeout: 5000 });
+        await this.gardendining.click();
+    }
+     async click_garden_sets_by_material() {
+        await expect(this.gardensetsbymaterial).toBeVisible({ timeout: 5000 });
+        await this.gardensetsbymaterial.click();
+    }
+     async click_garden_accessories() {
+        await expect(this.gardenaccessories).toBeVisible({ timeout: 5000 });
+        await this.gardenaccessories.click();
+    }
+
     async click_dining_link() {
         await expect(this.diningLink).toBeVisible({ timeout: 5000 });
         await this.diningLink.click();
@@ -70,6 +99,11 @@ export class mainMenuPage {
     async click_storage_link() {
         await expect(this.storageLink).toBeVisible({ timeout: 5000 });
         await this.storageLink.click();
+    }
+
+    async hover_storage_link() {
+        await expect(this.storageLink).toBeVisible({ timeout: 5000 });
+        await this.storageLink.hover();
     }
 
     async click_on_a_product() {
