@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Browser } from '@playwright/test';
 import { mainMenuPage } from '../pages/mainmenu.page';
 import { BasketPage } from '../pages/basket.page';
 import { GardenPage } from '../pages/garden.page';
@@ -60,6 +60,7 @@ test('validate adding an item to the basket is working', async ({ page }) => {
 });
 test('Verify the basket page core areas', async ({ page }) => {
     // naviagate to the daals website
+    await page.reload()
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
     const mainMenu = new mainMenuPage(page);
@@ -87,9 +88,11 @@ test('Verify the basket page core areas', async ({ page }) => {
     await basketPage.validate_remove_item_button()
     await basketPage.validate_checkout_link()
     await basketPage.click_checkout_link()
+    await page.close();
 });
 test('Verify a catalouge page: Garden core areas', async ({ page }) => {
     // naviagate to the daals website
+    await page.reload()
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
    
@@ -101,9 +104,11 @@ test('Verify a catalouge page: Garden core areas', async ({ page }) => {
     //click on a  available product
     const gardenPage = new GardenPage(page);
     await gardenPage.validate_garden_furniture_header()
+    await page.close();
 });
-test('Validate garden living section is working', async ({ page }) => {
+test('Validate garden living section is working', async ({ page, browser }) => {
     // naviagate to the daals website
+    await page.reload()
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
    
@@ -133,9 +138,11 @@ test('Validate garden dining section is working', async ({ page }) => {
     //click on a  available product
     const gardenPage = new GardenPage(page);
     await gardenPage.validate_garden_dining()
+    await page.close();
 });
 test('Validate garden sets by material section is working', async ({ page }) => {
     // naviagate to the daals website
+    await page.reload()
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
    
@@ -148,9 +155,11 @@ test('Validate garden sets by material section is working', async ({ page }) => 
     //click on a  available product
     const gardenPage = new GardenPage(page);
     await gardenPage.validate_garden_sets_by_material()
+    await page.close();
 });
 test('Validate garden accessories section is working', async ({ page }) => {
     // naviagate to the daals website
+    await page.reload()
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
    
@@ -164,10 +173,12 @@ test('Validate garden accessories section is working', async ({ page }) => {
     await mainMenu.click_garden_accessories()
     const gardenPage = new GardenPage(page);
     await gardenPage.validate_garden_accessories()
+    await page.close();
 });
 
 test('Verify a catalouge page: validate sorting is working', async ({ page }) => {
     // naviagate to the daals website
+    await page.reload()
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
    
@@ -181,9 +192,11 @@ test('Verify a catalouge page: validate sorting is working', async ({ page }) =>
     //click on a  available product
     const gardenPage = new GardenPage(page);
     await gardenPage.click_on_sort_by()
+
 });
 test('Verify a catalouge page: validate sorting is working for newest items', async ({ page }) => {
     // naviagate to the daals website
+    await page.reload()
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
    
@@ -202,6 +215,7 @@ test('Verify a catalouge page: validate sorting is working for newest items', as
 })
 test('Verify a catalouge page: validate sorting is working for price low to high', async ({ page }) => {
     // naviagate to the daals website
+    await page.reload()
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
    
@@ -219,6 +233,7 @@ test('Verify a catalouge page: validate sorting is working for price low to high
 })
 test('Verify a catalouge page: validate sorting is working for price high to low', async ({ page }) => {
     // naviagate to the daals website
+    await page.reload()
     await page.goto('https://www.daals.co.uk/',{waitUntil: 'load'});
     // wait for the page to load
    
