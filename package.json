@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "test": "npx playwright test",
-  "allure:report": "allure generate ./allure-results --clean -o ./allure-report && allure open ./allure-report"
-  }
-  ,
+    "test": "npx playwright test",
+    "allure:report": "allure generate ./allure-results --clean -o ./allure-report && allure open ./allure-report"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mujtahid3996/Automation_exercise_for_echologyX.git"
@@ -20,7 +19,7 @@
   "homepage": "https://github.com/mujtahid3996/Automation_exercise_for_echologyX#readme",
   "description": "",
   "devDependencies": {
-    "@playwright/test": "^1.52.0",
+    "@playwright/test": "^1.57.0",
     "@types/node": "^22.15.3",
     "allure-playwright": "^3.2.1"
   }

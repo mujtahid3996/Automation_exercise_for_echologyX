@@ -29,7 +29,6 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
-
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
@@ -41,7 +40,8 @@ export default defineConfig({
       name: 'Microsoft edge',
       use: { ...devices['Desktop Edge'], 
             channel: 'msedge' ,
-            headless: false
+            headless: false,
+            viewport: { width: 1920, height: 1080 },
             // storageState: 'playwright/.auth/user.json',
           },
     },
