@@ -4,18 +4,49 @@ export class GardenPage {
 
     readonly page: Page;
     readonly gardenFurnitureHeader: Locator;
-    readonly filters: Locator;
+    readonly gardenLivingHeader: Locator;
+    readonly gardenDiningHeader: Locator;
+    readonly gardenSetsByMaterialHeader: Locator;
+    readonly gardenAccessoriesHeader: Locator;
+    // readonly filters: Locator;
     readonly sortBy: Locator;
-    readonly searchButton: Locator;
+    // readonly searchButton: Locator;
 
     constructor(page: Page) {
         this.page = page;
-        this.gardenFurnitureHeader = page.locator('h1:has-text("Garden Furniture")').nth(1);
+        this.gardenFurnitureHeader = page.locator('h1:has-text("Garden Furniture")');
+        this.gardenLivingHeader = page.locator('h1:has-text("Garden Living")');
+        this.gardenDiningHeader = page.locator('h1:has-text("Garden Dining")');
+        this.gardenSetsByMaterialHeader = page.locator('h1:has-text("Garden Sets by Material")');
+        this.gardenAccessoriesHeader = page.locator('h1:has-text("Garden Accessories")');
+        // this.filters = page.locator('text=Filters');
         this.sortBy = page.locator('text=Sort by');
     }
     async validate_garden_furniture_header(){
+        await this.page.waitForLoadState('load');
         // Validate the header of the garden furniture page
-        await expect(this.gardenFurnitureHeader).toBeVisible();
+        await expect(this.gardenFurnitureHeader.first()).toBeVisible();
+    }
+     async validate_garden_Living_header(){
+        await this.page.waitForLoadState('load');
+        // Validate the header of the garden furniture page
+        await expect(this.gardenLivingHeader.first()).toBeVisible();
+    }
+    async validate_garden_sets_by_material(){
+        await this.page.waitForLoadState('load');
+        // Validate the header of the garden furniture page
+        await expect(this.gardenSetsByMaterialHeader.first()).toBeVisible();
+    }
+    async validate_garden_accessories(){
+        await this.page.waitForLoadState('load');
+        // Validate the header of the garden furniture page
+        await expect(this.gardenAccessoriesHeader.first()).toBeVisible();
+    }
+
+    async validate_garden_dining(){
+        await this.page.waitForLoadState('load');
+        // Validate the header of the garden furniture page
+        await expect(this.gardenDiningHeader.first()).toBeVisible();
     }
     async click_on_sort_by(){
         // Click on the sort by button

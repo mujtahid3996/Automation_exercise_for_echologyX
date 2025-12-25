@@ -23,7 +23,7 @@ export class BedroomPage {
         this.diningLink = page.getByRole('link', { name: 'Dining' }).first();
         this.storageLink = page.getByRole('link', { name: 'Storage' }).first();
         this.BasketLink = page.locator('//li[@id="cart_block_mobile"]').first();
-
+        this.bathroomLink = page.getByRole('link', { name: 'Bathroom' }).first();
 
 
     }

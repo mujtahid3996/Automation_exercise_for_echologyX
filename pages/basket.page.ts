@@ -37,7 +37,7 @@ export class BasketPage {
     
     async click_add_to_basket() {
         const addToBasketButton = this.page.locator('//button[text()="Add to Basket"]').first();  
-        await addToBasketButton.scrollIntoViewIfNeeded;
+        await addToBasketButton.scrollIntoViewIfNeeded();
         await addToBasketButton.click();
     }
 
