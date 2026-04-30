@@ -41,7 +41,7 @@ export default defineConfig({
       use: { ...devices['Desktop Edge'], 
             channel: 'msedge' ,
             headless: false,
-            viewport: { width: 1920, height: 1080 },
+            viewport: { width: 1280, height: 720 },
             // storageState: 'playwright/.auth/user.json',
           },
     },
